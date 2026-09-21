@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inlay Interiors</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            purple: '#6B46C1', // Deep purple
+                            light: '#9F7AEA',  // Lighter purple for accents
+                            dark: '#44337A',   // Darker purple for text
+                            bg: '#FAF5FF'      // Very light purple tinted background
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for smoother animations and logo rendering */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: theme('colors.brand.bg');
+            color: theme('colors.gray.800');
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-pattern {
+            background-image: linear-gradient(rgba(250, 245, 255, 0.9), rgba(250, 245, 255, 0.9)), url('https://placehold.co/1920x1080/6B46C1/ffffff?text=Interior+Design+Background');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen">
+
+    <!-- Header / Navigation -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-brand-light/20 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer">
+                    <svg class="h-10 w-auto text-brand-purple" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Minimalist "I" overlapping another "I" representing Inlay -->
+                        <rect x="25" y="15" width="15" height="70" fill="currentColor"/>
+                        <rect x="55" y="15" width="20" height="70" fill="currentColor" fill-opacity="0.8"/>
+                        <!-- Connecting element -->
+                        <path d="M40 45 L55 55" stroke="currentColor" stroke-width="6"/>
+                    </svg>
+                    <span class="ml-3 font-serif text-2xl font-semibold text-brand-dark tracking-wide">INLAY</span>
+                    <span class="ml-1 text-sm font-light text-brand-light uppercase tracking-widest mt-1 hidden sm:inline-block">Interiors</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#services" class="text-gray-600 hover:text-brand-purple transition-colors duration-300 font-medium">Services</a>
+                    <a href="#portfolio" class="text-gray-600 hover:text-brand-purple transition-colors duration-300 font-medium">Portfolio</a>
+                    <a href="#about" class="text-gray-600 hover:text-brand-purple transition-colors duration-300 font-medium">About</a>
+                    <a href="#contact" class="text-brand-purple hover:text-brand-dark transition-colors duration-300 font-semibold">Contact Us</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-purple focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-purple hover:bg-brand-bg rounded-md">Services</a>
+                <a href="#portfolio" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-purple hover:bg-brand-bg rounded-md">Portfolio</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-purple hover:bg-brand-bg rounded-md">About</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-brand-purple bg-brand-bg rounded-md">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        
+        <!-- Hero Section -->
+        <section class="hero-pattern py-20 lg:py-32 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl text-brand-dark mb-6 leading-tight">
+                        Crafting Spaces That Tell <span class="italic text-brand-purple">Your Story</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-700 mb-10 font-light">
+                        Bespoke interior design services blending timeless elegance with modern functionality. We create homes that reflect who you are.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="#portfolio" class="px-8 py-3 bg-brand-purple text-white rounded-full font-medium hover:bg-brand-dark transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
+                            View Portfolio
+                        </a>
+                        <a href="#contact" class="px-8 py-3 bg-white text-brand-purple border-2 border-brand-purple rounded-full font-medium hover:bg-brand-bg transition-colors">
+                            Book a Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Decorative blur elements -->
+            <div class="absolute top-0 left-10 w-72 h-72 bg-brand-light rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+            <div class="absolute top-0 right-10 w-72 h-72 bg-brand-purple rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-sm font-bold tracking-widest text-brand-light uppercase mb-2">Our Expertise</h2>
+                    <h3 class="text-3xl sm:text-4xl text-brand-dark">Comprehensive Design Services</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Service 1 -->
+                    <div class="p-8 rounded-2xl bg-brand-bg hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-brand-light/30 group">
+                        <div class="w-14 h-14 bg-brand-purple/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-purple transition-colors">
+                            <svg class="w-8 h-8 text-brand-purple group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-serif text-brand-dark mb-3">Residential Design</h4>
+                        <p class="text-gray-600 font-light leading-relaxed">Transforming houses into personalized sanctuaries. From single room updates to complete home renovations.</p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="p-8 rounded-2xl bg-brand-bg hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-brand-light/30 group">
+                        <div class="w-14 h-14 bg-brand-purple/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-purple transition-colors">
+                            <svg class="w-8 h-8 text-brand-purple group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-serif text-brand-dark mb-3">Commercial Spaces</h4>
+                        <p class="text-gray-600 font-light leading-relaxed">Designing inspiring workspaces and boutique retail environments that reflect your brand identity and culture.</p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="p-8 rounded-2xl bg-brand-bg hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-brand-light/30 group">
+                        <div class="w-14 h-14 bg-brand-purple/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-purple transition-colors">
+                            <svg class="w-8 h-8 text-brand-purple group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-serif text-brand-dark mb-3">Styling & Furnishing</h4>
+                        <p class="text-gray-600 font-light leading-relaxed">Curating furniture, art, and accessories to perfectly finish your space. We source unique pieces tailored to you.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Gallery -->
+        <section id="portfolio" class="py-20 bg-brand-dark text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                    <div class="max-w-2xl">
+                        <h2 class="text-sm font-bold tracking-widest text-brand-light uppercase mb-2">Featured Projects</h2>
+                        <h3 class="text-3xl sm:text-4xl font-serif">A Glimpse into Our Process</h3>
+                    </div>
+                    <a href="#" class="mt-6 md:mt-0 text-brand-light hover:text-white font-medium flex items-center transition-colors">
+                        View All Projects 
+                        <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Project 1 -->
+                    <div class="relative group overflow-hidden rounded-xl aspect-[4/5]">
+                        <img src="https://placehold.co/600x800/44337A/ffffff?text=Modern+Living+Room" alt="Modern Living Room" class="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-brand-light text-sm uppercase tracking-wider mb-1">Residential</span>
+                            <h4 class="text-xl font-serif">The Oasis Retreat</h4>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="relative group overflow-hidden rounded-xl aspect-[4/5]">
+                        <img src="https://placehold.co/600x800/6B46C1/ffffff?text=Minimalist+Kitchen" alt="Minimalist Kitchen" class="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-brand-light text-sm uppercase tracking-wider mb-1">Renovation</span>
+                            <h4 class="text-xl font-serif">Urban Culinary Space</h4>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="relative group overflow-hidden rounded-xl aspect-[4/5] sm:col-span-2 lg:col-span-1">
+                        <img src="https://placehold.co/600x800/9F7AEA/ffffff?text=Boutique+Office" alt="Boutique Office" class="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-brand-light text-sm uppercase tracking-wider mb-1">Commercial</span>
+                            <h4 class="text-xl font-serif">Creative Studio Hub</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA / Contact Section -->
+        <section id="contact" class="py-24 bg-brand-bg relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl sm:text-4xl text-brand-dark mb-6 font-serif">Ready to transform your space?</h2>
+                <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
+                    Let's discuss your vision. Contact us today to schedule a consultation and take the first step towards your dream interior.
+                </p>
+                <form class="max-w-md mx-auto space-y-4" onsubmit="event.preventDefault(); alert('In a real app, this would send a message.');">
+                    <input type="text" placeholder="Your Name" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-purple focus:border-transparent bg-white shadow-sm">
+                    <input type="email" placeholder="Email Address" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-purple focus:border-transparent bg-white shadow-sm">
+                    <button type="submit" class="w-full px-8 py-4 bg-brand-purple text-white rounded-lg font-medium hover:bg-brand-dark transition-colors shadow-md">
+                        Start the Conversation
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Footer Logo & About -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-auto text-brand-purple" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="25" y="15" width="15" height="70" fill="currentColor"/>
+                            <rect x="55" y="15" width="20" height="70" fill="currentColor" fill-opacity="0.8"/>
+                            <path d="M40 45 L55 55" stroke="currentColor" stroke-width="6"/>
+                        </svg>
+                        <span class="ml-2 font-serif text-xl font-semibold text-brand-dark">INLAY</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-sm">
+                        Inlay Interiors creates thoughtful, bespoke environments. We believe in design that elevates daily life through careful consideration of form, function, and feeling.
+                    </p>
+                </div>
+                <!-- Links -->
+                <div>
+                    <h4 class="font-semibold text-brand-dark mb-4">Explore</h4>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-brand-purple transition-colors">Home</a></li>
+                        <li><a href="#services" class="hover:text-brand-purple transition-colors">Services</a></li>
+                        <li><a href="#portfolio" class="hover:text-brand-purple transition-colors">Portfolio</a></li>
+                        <li><a href="#about" class="hover:text-brand-purple transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-semibold text-brand-dark mb-4">Connect</h4>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li>hello@inlayinteriors.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li class="pt-2 flex space-x-4">
+                            <!-- Social Icons (Placeholders) -->
+                            <a href="#" class="text-gray-400 hover:text-brand-purple transition-colors">
+                                <span class="sr-only">Instagram</span>
+                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+                            </a>
+                             <a href="#" class="text-gray-400 hover:text-brand-purple transition-colors">
+                                <span class="sr-only">Pinterest</span>
+                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.951-7.252 4.163 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.366 18.614 0 12.017 0z"/></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+                <p>&copy; 2024 Inlay Interiors. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-brand-purple">Privacy Policy</a>
+                    <a href="#" class="hover:text-brand-purple">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Simple script to handle mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                menu.classList.add('hidden'); // Close mobile menu on click
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
